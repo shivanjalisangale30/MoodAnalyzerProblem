@@ -38,8 +38,7 @@ public class MoodAnalyzerTest
         try
         {
             Assert.assertEquals("Happy", moodAnalyzer.analyseMood(null));
-        }
-        catch (MoodAnalyzerException e)
+        } catch (MoodAnalyzerException e)
         {
             e.printStackTrace();
         }
@@ -59,4 +58,17 @@ public class MoodAnalyzerTest
         }
     }
 
+    @Test
+    public void givenMessage_EmptyPointerEcxeption()
+    {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("");
+        try
+        {
+            moodAnalyzer.analyseMood();
+        }
+        catch (MoodAnalyzerException e)
+        {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_EMPTY , e.type);
+        }
+    }
 }

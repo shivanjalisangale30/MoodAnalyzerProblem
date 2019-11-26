@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoodAnalyzerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-11-26T07:22:01" hostname="admin1-desktop" time="0.04">
+<testsuite name="MoodAnalyzerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-11-26T07:25:52" hostname="admin1-desktop" time="0.029">
   <properties/>
-  <testcase name="givenMessage_whenAnyMood_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.02"/>
-  <testcase name="givenMessage_whenNullMood_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.016"/>
-  <testcase name="givenMessage_whenSad_shouldReturnSad" classname="MoodAnalyzerTest" time="0.002"/>
+  <testcase name="givenMessage_EmptyPointerEcxeption" classname="MoodAnalyzerTest" time="0.001"/>
+  <testcase name="givenMessage_whenAnyMood_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.011"/>
+  <testcase name="givenMessage_whenNullMood_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.008"/>
+  <testcase name="givenMessage_whenSad_shouldReturnSad" classname="MoodAnalyzerTest" time="0.007"/>
   <testcase name="givenMessage_NullPointerException" classname="MoodAnalyzerTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[MoodAnalyzerException: Please enter proper message.
-	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:37)
+	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:40)
 	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:18)
 	at MoodAnalyzerTest.givenMessage_whenAnyMood_shouldReturnHappy(MoodAnalyzerTest.java:26)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -58,7 +59,7 @@
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 MoodAnalyzerException: Please enter proper message.
-	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:37)
+	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:40)
 	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:18)
 	at MoodAnalyzerTest.givenMessage_whenNullMood_shouldReturnHappy(MoodAnalyzerTest.java:40)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -109,7 +110,7 @@ MoodAnalyzerException: Please enter proper message.
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 MoodAnalyzerException: Please enter proper message.
-	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:37)
+	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:40)
 	at MoodAnalyzer.analyseMood(MoodAnalyzer.java:18)
 	at MoodAnalyzerTest.givenMessage_whenSad_shouldReturnSad(MoodAnalyzerTest.java:12)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

@@ -22,7 +22,10 @@ public class MoodAnalyzer
     {
         try
         {
-
+            if (message.length() == 0 )
+            {
+                throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.ENTERED_EMPTY, "Please enter proper message");
+            }
             if (this.message.contains("Sad"))
             {
                 return "Sad";
