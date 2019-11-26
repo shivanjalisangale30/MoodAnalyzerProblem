@@ -1,8 +1,20 @@
 public class MoodAnalyzer
 {
-  public String analyseMood (String message)
-  {
-      if(message.contains("Sad"))
+    private String message;
+
+    public MoodAnalyzer()
+    {
+
+    }
+
+    public MoodAnalyzer(String message)
+    {
+        this.message = message;
+    }
+
+    public String analyseMood()
+    {
+      if(this.message.contains("Sad"))
       {
          return "Sad";
       }
@@ -10,5 +22,5 @@ public class MoodAnalyzer
       {
           return "Happy";
       }
-  }
+   }
 }
