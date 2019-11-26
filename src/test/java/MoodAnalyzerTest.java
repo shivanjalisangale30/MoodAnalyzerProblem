@@ -7,20 +7,56 @@ public class MoodAnalyzerTest
     public void givenMessage_whenSad_shouldReturnSad()
     {
         MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood");
-        Assert.assertEquals("Sad", moodAnalyzer.analyseMood());
+        try
+        {
+            Assert.assertEquals("Sad", moodAnalyzer.analyseMood(null));
+        }
+        catch (MoodAnalyzerException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenMessage_whenAnyMood_shouldReturnHappy()
     {
-       MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Happy Mood ");
-       Assert.assertEquals("Happy" , moodAnalyzer.analyseMood());
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Happy Mood ");
+        try
+        {
+            Assert.assertEquals("Happy", moodAnalyzer.analyseMood(null));
+        }
+        catch (MoodAnalyzerException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenMessage_whenNullMood_shouldReturnHappy()
     {
         MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
-        Assert.assertEquals("Happy" , moodAnalyzer.analyseMood());
+        try
+        {
+            Assert.assertEquals("Happy", moodAnalyzer.analyseMood(null));
+        }
+        catch (MoodAnalyzerException e)
+        {
+            e.printStackTrace();
+        }
     }
+
+    @Test
+    public void givenMessage_NullPointerException()
+    {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+        try
+        {
+            moodAnalyzer.analyseMood();
+        }
+        catch (MoodAnalyzerException e)
+        {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_NULL , e.type);
+        }
+    }
+
 }
