@@ -65,7 +65,7 @@ public class MoodAnalyzerTest {
     }
 
     @Test
-    public void givenClassName_whenImproper_shouldThrowException() throws MoodAnalyzerException {
+    public void givenDefaultConstructor_whenImproperClassName_shouldThrowException() throws MoodAnalyzerException {
         try {
             MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer();
         } catch (MoodAnalyzerException e) {
@@ -93,4 +93,16 @@ public class MoodAnalyzerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenParameterConstructor_whenImproperClassName_shouldThrowException() {
+        try {
+            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_CLASS, e.type);
+        }
+
+    }
+
+
 }
