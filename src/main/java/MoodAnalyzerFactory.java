@@ -96,7 +96,7 @@ public class MoodAnalyzerFactory {
         return null;
     }
 
-    public static Object invokeMethod(Object moodAnalysisObject, String methodName) throws  MoodAnalyzerException {
+    public static Object invokeMethod(Object moodAnalysisObject, String methodName ) throws  MoodAnalyzerException {
         try {
             return moodAnalysisObject.getClass().getMethod(methodName).invoke(moodAnalysisObject);
         } catch (NoSuchMethodException e) {

@@ -122,5 +122,14 @@ public class MoodAnalyzerTest {
         Assert.assertEquals("Happy", mood);
     }
 
+    @Test
+    public void givenHappyMessage_whenImproperInvokeMethod_shouldReturnException() throws MoodAnalyzerException {
+        try {
+            MoodAnalyzer myObject = MoodAnalyzerFactory.createMoodAnalyzer("I am in Happy Mood");
+            Object mood = MoodAnalyzerFactory.invokeMethod(myObject, "analyseMood123");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
+        }
+    }
 
 }

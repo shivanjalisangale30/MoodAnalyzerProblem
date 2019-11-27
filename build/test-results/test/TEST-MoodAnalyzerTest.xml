@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoodAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-27T13:26:03" hostname="admin1-desktop" time="0.003">
+<testsuite name="MoodAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-27T13:38:56" hostname="admin1-desktop" time="0.002">
   <properties/>
-  <testcase name="givenHappyMessage_whenProperInvokeMethod_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.003"/>
+  <testcase name="givenHappyMessage_whenProperInvokeMethod_shouldReturnHappy" classname="MoodAnalyzerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
