@@ -74,7 +74,7 @@ public class MoodAnalyzerTest {
     }
 
     @Test
-    public void givenClassName_whenImproperConstructor_shouldThrowException() throws MoodAnalyzerException {
+    public void givenClassName1_whenImproperConstructor_shouldThrowException() throws MoodAnalyzerException {
         try {
             MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2");
         } catch (MoodAnalyzerException e) {
@@ -104,5 +104,12 @@ public class MoodAnalyzerTest {
 
     }
 
-
+    @Test
+    public void givenClassName2_whenImproperConstructor_shouldThrowException() {
+        try {
+            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2","String3");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
+        }
+    }
 }
