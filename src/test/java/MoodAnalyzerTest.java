@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.lang.reflect.Constructor;
+
 public class MoodAnalyzerTest {
     @Test
     public void givenMessage_whenSad_shouldReturnSad() {
@@ -112,4 +114,13 @@ public class MoodAnalyzerTest {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
     }
+
+    @Test
+    public void givenHappyMessage_whenProperInvokeMethod_shouldReturnHappy() throws MoodAnalyzerException {
+        MoodAnalyzer myObject = MoodAnalyzerFactory.createMoodAnalyzer("I am in Happy Mood");
+        Object mood = MoodAnalyzerFactory.invokeMethod(myObject , "analyseMood");
+        Assert.assertEquals("Happy", mood);
+    }
+
+
 }
