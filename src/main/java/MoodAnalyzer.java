@@ -28,12 +28,13 @@ public class MoodAnalyzer {
         }
     }
 
-    public boolean equals(Object another) {
-        if (this  instanceof MoodAnalyzer) {
+    public boolean equals(Object another)
+    {
+        if(this.equals(((MoodAnalyzer)another)))
+        {
             return true;
         }
         return false;
     }
-
 
 }

@@ -40,7 +40,7 @@ public class MoodAnalyzerFactory {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }catch (IllegalArgumentException e){
-            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD);
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_ACCESS);
         }
 
         return null;

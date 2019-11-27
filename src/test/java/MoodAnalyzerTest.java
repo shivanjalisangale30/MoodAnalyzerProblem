@@ -57,7 +57,7 @@ public class MoodAnalyzerTest {
     }
 
     @Test
-    public void givenMoodAnalyzer_whenProper_shouldReturnObject() throws MoodAnalyzerException {
+    public void givenDefaultConstructor_whenProper_shouldReturnObject() throws MoodAnalyzerException {
         MoodAnalyzer moodAnalyzer1 = MoodAnalyzerFactory.createMoodAnalyzer();
         MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer();
         boolean result = moodAnalyzer1.equals(moodAnalyzer2);
@@ -82,5 +82,15 @@ public class MoodAnalyzerTest {
         }
     }
 
-
+    @Test
+    public void givenParameterConstructor_whenProper_shouldReturnObject() {
+        try {
+            MoodAnalyzer moodAnalyzer1 = MoodAnalyzerFactory.createMoodAnalyzer("String1" , "String2");
+            MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer();
+            boolean result = moodAnalyzer1.equals(moodAnalyzer2);
+            Assert.assertTrue(result);
+        } catch (MoodAnalyzerException e) {
+            e.printStackTrace();
+        }
+    }
 }
