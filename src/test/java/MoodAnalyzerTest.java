@@ -177,7 +177,7 @@ public class MoodAnalyzerTest {
         try {
             Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
             Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
-            MoodAnalyzerReflector.setFieldValue(myObject, "message", null);
+            MoodAnalyzerReflector.setFieldValue(myObject, "message", " ");
             Object mood = MoodAnalyzerReflector.invokeMethod(myObject, "analyseMood");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_NULL, e.type);

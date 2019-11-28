@@ -45,6 +45,8 @@ public class MoodAnalyzerReflector {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_FEILD, "Define Proper Field Name");
         } catch (IllegalAccessException e) {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_ACCESS, e);
+        }catch (NullPointerException e){
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.ENTERED_NULL,e);
         }
 
     }
