@@ -158,4 +158,18 @@ public class MoodAnalyzerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenMoodAnalyser_whenImproperSetField_shouldHandleException() throws MoodAnalyzerException {
+        try {
+            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
+            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            MoodAnalyzerFactory.setFieldValue(myObject, "message1", "I am in Happy Mood");
+            Object mood = MoodAnalyzerFactory.invokeMethod(myObject, "analyseMood");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_FEILD, e.type);
+
+        }
+    }
+
 }

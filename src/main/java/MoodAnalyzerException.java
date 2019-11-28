@@ -1,7 +1,9 @@
 public class MoodAnalyzerException extends Exception {
+    public MoodAnalyzerException(ExceptionType noSuchFeild, ExceptionType type) {
+    }
+
     enum ExceptionType {
-        ENTERED_NULL, ENTERED_EMPTY, NO_SUCH_CLASS, NO_SUCH_METHOD, NO_SUCH_FEILD , NO_ACCESS , METHOD_INVOCATION_ISSUE , NO_SUCH_FIELD
-        , OBJECT_CREATION_ISSUE
+        ENTERED_NULL, ENTERED_EMPTY, NO_SUCH_CLASS, NO_SUCH_METHOD, NO_SUCH_FEILD , NO_ACCESS , METHOD_INVOCATION_ISSUE , OBJECT_CREATION_ISSUE
     }
 
     ExceptionType type;

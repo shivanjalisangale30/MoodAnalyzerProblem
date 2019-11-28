@@ -42,7 +42,7 @@ public class MoodAnalyzerFactory {
             field.setAccessible(true);
             field.set(myobject, fieldValue);
         } catch (NoSuchFieldException e) {
-            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_FIELD, "Define Proper Field Name");
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_FEILD, "Define Proper Field Name");
         } catch (IllegalAccessException e) {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_ACCESS, e);
         }
