@@ -60,8 +60,8 @@ public class MoodAnalyzerTest {
 
     @Test
     public void givenDefaultConstructor_whenProper_shouldReturnObject() throws MoodAnalyzerException {
-        Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-        Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+        Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+        Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //        MoodAnalyzer moodAnalyzer1 = MoodAnalyzerFactory.createMoodAnalyzer();
         MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer();
         boolean result = myObject.equals(moodAnalyzer2);
@@ -71,8 +71,8 @@ public class MoodAnalyzerTest {
     @Test
     public void givenDefaultConstructor_whenImproperClassName_shouldThrowException() throws MoodAnalyzerException {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer();
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_CLASS, e.type);
@@ -82,8 +82,8 @@ public class MoodAnalyzerTest {
     @Test
     public void givenClassName1_whenImproperConstructor_shouldThrowException() throws MoodAnalyzerException {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
@@ -93,8 +93,8 @@ public class MoodAnalyzerTest {
     @Test
     public void givenParameterConstructor_whenProper_shouldReturnObject() {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //            MoodAnalyzer moodAnalyzer1 = MoodAnalyzerFactory.createMoodAnalyzer("String1" , "String2");
             MoodAnalyzer moodAnalyzer2 = new MoodAnalyzer();
             boolean result = myObject.equals(moodAnalyzer2);
@@ -107,8 +107,8 @@ public class MoodAnalyzerTest {
     @Test
     public void givenParameterConstructor_whenImproperClassName_shouldThrowException() {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_CLASS, e.type);
@@ -119,8 +119,8 @@ public class MoodAnalyzerTest {
     @Test
     public void givenClassName2_whenImproperConstructor_shouldThrowException() {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
 //            MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzer("String1","String2","String3");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
@@ -129,18 +129,18 @@ public class MoodAnalyzerTest {
 
     @Test
     public void givenHappyMessage_whenProperInvokeMethod_shouldReturnHappy() throws MoodAnalyzerException {
-        Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-        Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
-        Object mood = MoodAnalyzerFactory.invokeMethod(myObject , "analyseMood");
+        Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+        Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
+        Object mood = MoodAnalyzerReflector.invokeMethod(myObject , "analyseMood");
         Assert.assertEquals("Happy", mood);
     }
 
     @Test
     public void givenHappyMessage_whenImproperInvokeMethod_shouldReturnException() throws MoodAnalyzerException {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
-            Object mood = MoodAnalyzerFactory.invokeMethod(myObject, "analyseMood123");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            Object mood = MoodAnalyzerReflector.invokeMethod(myObject, "analyseMood123");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -149,10 +149,10 @@ public class MoodAnalyzerTest {
     @Test
     public void givenMoodAnalyser_OnChangedMood_shoudlReturnHappy() {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
-            MoodAnalyzerFactory.setFieldValue(myObject, "message", "I am in Happy Mood");
-            Object mood = MoodAnalyzerFactory.invokeMethod(myObject, "analyseMood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            MoodAnalyzerReflector.setFieldValue(myObject, "message", "I am in Happy Mood");
+            Object mood = MoodAnalyzerReflector.invokeMethod(myObject, "analyseMood");
             Assert.assertEquals("Happy", mood);
         } catch (MoodAnalyzerException e) {
             e.printStackTrace();
@@ -162,14 +162,26 @@ public class MoodAnalyzerTest {
     @Test
     public void givenMoodAnalyser_whenImproperSetField_shouldHandleException() throws MoodAnalyzerException {
         try {
-            Constructor<?> constructor = MoodAnalyzerFactory.getConstructor(String.class);
-            Object myObject = MoodAnalyzerFactory.createMoodAnalsyser(constructor, "I am in Happy Mood");
-            MoodAnalyzerFactory.setFieldValue(myObject, "message1", "I am in Happy Mood");
-            Object mood = MoodAnalyzerFactory.invokeMethod(myObject, "analyseMood");
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            MoodAnalyzerReflector.setFieldValue(myObject, "message1", "I am in Happy Mood");
+            Object mood = MoodAnalyzerReflector.invokeMethod(myObject, "analyseMood");
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_FEILD, e.type);
 
         }
     }
 
+    @Test
+    public void givenMoodAnalyser_whenNullMessage_shouldHandleException() throws MoodAnalyzerException {
+        try {
+            Constructor<?> constructor = MoodAnalyzerReflector.getConstructor(String.class);
+            Object myObject = MoodAnalyzerReflector.createMoodAnalsyser(constructor, "I am in Happy Mood");
+            MoodAnalyzerReflector.setFieldValue(myObject, "message", null);
+            Object mood = MoodAnalyzerReflector.invokeMethod(myObject, "analyseMood");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_NULL, e.type);
+
+        }
+    }
 }

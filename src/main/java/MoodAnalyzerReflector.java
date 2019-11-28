@@ -2,7 +2,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
-public class MoodAnalyzerFactory {
+public class MoodAnalyzerReflector {
 
     public static Constructor<?> getConstructor(Class<?>... param) throws MoodAnalyzerException {
         try {
